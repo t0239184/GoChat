@@ -1,2 +1,12 @@
 # GoChat
-Chat room implementing with Golang
+使用Golang和JavaScript架設一個即時聊天的服務
+
+## Features
+- 註冊會員
+- 使用帳號密碼登入
+- 查詢帳號
+- 加入帳號為好友
+- 查詢已加好友清單
+- 傳送訊息給好友
+- 設定帳號資訊
+- 修改密碼
