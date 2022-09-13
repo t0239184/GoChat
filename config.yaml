@@ -1,0 +1,11 @@
+server:
+  port: 8080
+log:
+  path: ./
+database:
+  connection-info:
+    user: root
+    password: 1qaz2wsx
+    host: 127.0.0.1
+    port: 3306
+    database: GoChat
