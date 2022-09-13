@@ -10,6 +10,9 @@ import (
 	"gorm.io/gorm"
 
 	"github.com/t0239184/GoChat/app/tool"
+	_userDlivery "github.com/t0239184/GoChat/app/user/delivery/http"
+	_userRepo "github.com/t0239184/GoChat/app/user/repository/mysql"
+	_userUsecase "github.com/t0239184/GoChat/app/user/usecase"
 )
 
 func init() {
@@ -19,7 +22,10 @@ func init() {
 func main() {
 	r := gin.New()
 	r.Use(tool.AccessLogMiddleware())
-	// db := InitDatabase()
+	db := InitDatabase()
+	userRepo := _userRepo.NewUserRepository(db)
+	userUsecase := _userUsecase.NewUserUsecase(userRepo)
+	_userDlivery.NewUserHandler(r, userUsecase)
 
 	serverPort := ":" + tool.GetString("server.port")
 	r.Run(serverPort)
